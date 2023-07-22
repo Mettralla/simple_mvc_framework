@@ -1,0 +1,9 @@
+# Habilita el módulo de reescritura de URL en Apache.
+RewriteEngine On 
+
+# Si es un archivo o directorio valido lo cargara
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Caso contrario redirigira a index
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
